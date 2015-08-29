@@ -1,36 +1,38 @@
 {
-    "compile": [
-        "../Microsoft.AspNet.Mvc.Razor.Host.Test/TestFileProvider.cs",
-        "../Microsoft.AspNet.Mvc.Razor.Host.Test/TestFileInfo.cs",
-        "../Microsoft.AspNet.Mvc.Razor.Host.Test/TestFileTrigger.cs"
-    ],
-    "dependencies": {
-        "Microsoft.AspNet.Mvc.DataAnnotations": "6.0.0-*",
-        "Microsoft.AspNet.Mvc.Formatters.Xml": "6.0.0-*",
-        "Microsoft.AspNet.Mvc.Razor": "6.0.0-*",
-        "Microsoft.AspNet.Mvc.TestCommon": {
-            "version": "6.0.0-*",
-            "type": "build"
-        },
-        "Microsoft.AspNet.Testing": "1.0.0-*",
-        "Microsoft.Framework.DependencyInjection": "1.0.0-*",
-        "Microsoft.Framework.WebEncoders.Testing": "1.0.0-*",
-        "Microsoft.Dnx.Runtime": "1.0.0-*",
-        "xunit.runner.aspnet": "2.0.0-aspnet-*"
+  "compile": [
+    "../Microsoft.AspNet.Mvc.Razor.Host.Test/TestFileProvider.cs",
+    "../Microsoft.AspNet.Mvc.Razor.Host.Test/TestFileInfo.cs",
+    "../Microsoft.AspNet.Mvc.Razor.Host.Test/TestFileTrigger.cs"
+  ],
+  "dependencies": {
+    "Microsoft.AspNet.Mvc.DataAnnotations": "6.0.0-*",
+    "Microsoft.AspNet.Mvc.Formatters.Xml": "6.0.0-*",
+    "Microsoft.AspNet.Mvc.Razor": "6.0.0-*",
+    "Microsoft.AspNet.Mvc.TestCommon": {
+      "version": "6.0.0-*",
+      "type": "build"
     },
-    "commands": {
-        "test": "xunit.runner.aspnet"
-    },
-    "frameworks": {
-        "dnx451": {
-            "dependencies": {
-                "Moq": "4.2.1312.1622"
-            }
-        }
-    },
-    "exclude": [
-        "wwwroot",
-        "node_modules",
-        "bower_components"
-    ]
+    "Microsoft.AspNet.Testing": "1.0.0-*",
+    "Microsoft.Dnx.Runtime": "1.0.0-*",
+    "Microsoft.Framework.DependencyInjection": "1.0.0-*",
+    "Microsoft.Framework.WebEncoders.Testing": "1.0.0-*",
+    "xunit.assert": "2.1.0-*",
+    "xunit.extensibility.execution": "2.1.0-*",
+    "xunit.runner.dnx": "2.1.0-*"
+  },
+  "commands": {
+    "test": "xunit.runner.dnx"
+  },
+  "frameworks": {
+    "dnx451": {
+      "dependencies": {
+        "Moq": "4.2.1312.1622"
+      }
+    }
+  },
+  "exclude": [
+    "wwwroot",
+    "node_modules",
+    "bower_components"
+  ]
 }
