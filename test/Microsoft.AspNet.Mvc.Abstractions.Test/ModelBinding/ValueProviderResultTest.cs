@@ -322,7 +322,7 @@ namespace Microsoft.AspNet.Mvc.ModelBinding
         }
 
         [Theory]
-        [InlineData(new object[] { new[] { 1, 0 } })]
+        [InlineData(new object[] { new object[] { 1, 0 } })]
         [InlineData(new object[] { new[] { "Value1", "Value0" } })]
         [InlineData(new object[] { new[] { "Value1", "value0" } })]
         public void ConvertTo_ConvertsEnumArrays(object value)
@@ -341,9 +341,9 @@ namespace Microsoft.AspNet.Mvc.ModelBinding
         }
 
         [Theory]
-        [InlineData(new object[] { new[] { 1, 2 }, new[] { FlagsEnum.Value1, FlagsEnum.Value2 } })]
+        [InlineData(new object[] { new object[] { 1, 2 }, new[] { FlagsEnum.Value1, FlagsEnum.Value2 } })]
         [InlineData(new object[] { new[] { "Value1", "Value2" }, new[] { FlagsEnum.Value1, FlagsEnum.Value2 } })]
-        [InlineData(new object[] { new[] { 5, 2 }, new[] { FlagsEnum.Value1 | FlagsEnum.Value4, FlagsEnum.Value2 } })]
+        [InlineData(new object[] { new object[] { 5, 2 }, new[] { FlagsEnum.Value1 | FlagsEnum.Value4, FlagsEnum.Value2 } })]
         public void ConvertTo_ConvertsFlagsEnumArrays(object value, FlagsEnum[] expected)
         {
             // Arrange
