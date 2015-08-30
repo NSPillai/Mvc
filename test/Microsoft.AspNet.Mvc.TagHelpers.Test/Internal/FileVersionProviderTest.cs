@@ -18,8 +18,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
     public class FileVersionProviderTest
     {
         [ConditionalTheory]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         [InlineData("/hello/world", "/hello/world?v=f4OxZX_x_FO5LcGBSKHWXfwtSx-j1ncoSt3SABJtkGk")]
         [InlineData("/hello/world?q=test", "/hello/world?q=test&v=f4OxZX_x_FO5LcGBSKHWXfwtSx-j1ncoSt3SABJtkGk")]
         [InlineData("/hello/world?q=foo&bar", "/hello/world?q=foo&bar&v=f4OxZX_x_FO5LcGBSKHWXfwtSx-j1ncoSt3SABJtkGk")]
@@ -43,8 +43,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
 
         // Verifies if the stream is closed after reading.
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public void AddsVersionToFiles_DoesNotLockFileAfterReading()
         {
             // Arrange
@@ -76,8 +76,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
         }
 
         [ConditionalTheory]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         [InlineData("/testApp/hello/world", true, "/testApp")]
         [InlineData("/testApp/foo/bar/hello/world", true, "/testApp/foo/bar")]
         [InlineData("/test/testApp/hello/world", false, "/testApp")]
@@ -101,8 +101,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public void DoesNotAddVersion_IfFileNotFound()
         {
             // Arrange
@@ -121,8 +121,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public void ReturnsValueFromCache()
         {
             // Arrange
@@ -141,8 +141,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
         }
 
         [ConditionalTheory]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         [InlineData("/hello/world", "/hello/world", null)]
         [InlineData("/testApp/hello/world", "/hello/world", "/testApp")]
         public void SetsValueInCache(string filePath, string watchPath, string requestPathBase)

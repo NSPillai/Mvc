@@ -19,7 +19,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
 
         [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task FileFromDisk_CanBeEnabled_WithMiddleware()
         {
             // Arrange
@@ -42,7 +42,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
 
         [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task FileFromDisk_ReturnsFileWithFileName()
         {
             // Arrange

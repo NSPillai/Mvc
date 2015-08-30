@@ -68,7 +68,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
 
             // Act
             var response = await client.PostAsync("http://localhost/Home/DisplayTempData", content);
-            
+
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var body = await response.Content.ReadAsStringAsync();
@@ -76,8 +76,8 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task Redirect_RetainsTempData_EvenIfAccessed()
         {
             // Arrange
@@ -146,8 +146,8 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task TempData_ValidTypes_RoundTripProperly()
         {
             // Arrange

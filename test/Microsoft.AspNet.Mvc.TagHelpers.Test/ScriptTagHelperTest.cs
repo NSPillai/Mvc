@@ -676,8 +676,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task RenderScriptTags_WithFileVersion()
         {
             // Arrange
@@ -715,8 +715,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task RenderScriptTags_WithFileVersion_AndRequestPathBase()
         {
             // Arrange
@@ -754,8 +754,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task RenderScriptTags_FallbackSrc_WithFileVersion()
         {
             // Arrange
@@ -800,8 +800,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task RenderScriptTags_GlobbedSrc_WithFileVersion()
         {
             // Arrange

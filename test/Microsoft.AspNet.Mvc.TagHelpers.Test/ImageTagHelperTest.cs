@@ -82,8 +82,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public void RendersImageTag_AddsFileVersion()
         {
             // Arrange
@@ -156,8 +156,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public void RendersImageTag_AddsFileVersion_WithRequestPathBase()
         {
             // Arrange

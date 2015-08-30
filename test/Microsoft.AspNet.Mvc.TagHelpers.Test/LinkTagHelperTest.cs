@@ -621,8 +621,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public void RendersLinkTags_AddsFileVersion()
         {
             // Arrange
@@ -663,8 +663,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public void RendersLinkTags_AddsFileVersion_WithRequestPathBase()
         {
             // Arrange
@@ -705,8 +705,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         }
 
         [ConditionalFact]
-        // Mono issue - https://github.com/aspnet/External/issues/21
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        // Not really a Mono issue but see https://github.com/aspnet/External/issues/21
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public void RendersLinkTags_GlobbedHref_AddsFileVersion()
         {
             // Arrange

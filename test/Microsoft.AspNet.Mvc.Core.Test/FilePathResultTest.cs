@@ -33,7 +33,7 @@ namespace Microsoft.AspNet.Mvc
 
         [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task ExecuteResultAsync_FallsbackToStreamCopy_IfNoIHttpSendFilePresent()
         {
             // Arrange
@@ -90,7 +90,7 @@ namespace Microsoft.AspNet.Mvc
 
         [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task ExecuteResultAsync_CallsSendFileAsync_IfIHttpSendFilePresent()
         {
             // Arrange
@@ -120,7 +120,7 @@ namespace Microsoft.AspNet.Mvc
 
         [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task ExecuteResultAsync_SetsSuppliedContentTypeAndEncoding()
         {
             // Arrange
@@ -152,7 +152,7 @@ namespace Microsoft.AspNet.Mvc
 
         [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task ExecuteResultAsync_WorksWithAbsolutePaths_UsingBackSlash()
         {
             // Arrange
@@ -185,7 +185,7 @@ namespace Microsoft.AspNet.Mvc
 
         [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         public async Task ExecuteResultAsync_WorksWithAbsolutePaths_UsingForwardSlash()
         {
             // Arrange
@@ -280,7 +280,7 @@ namespace Microsoft.AspNet.Mvc
             {
                 FileProvider = fileProvider,
             };
-            
+
             // Act
             var resolveFilePathResult = filePathResult.ResolveFilePath(fileProvider);
 
@@ -447,7 +447,7 @@ namespace Microsoft.AspNet.Mvc
 
         [ConditionalTheory]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         [InlineData("C:\\Folder\\SubFolder\\File.txt")]
         [InlineData("C:/Folder/SubFolder/File.txt")]
         [InlineData("\\\\NetworkLocation\\Folder\\SubFolder\\File.txt")]
@@ -469,7 +469,7 @@ namespace Microsoft.AspNet.Mvc
 
         [ConditionalTheory]
         // https://github.com/aspnet/Mvc/issues/2727
-        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         [InlineData("FilePathResultTestFile.txt")]
         [InlineData("/FilePathResultTestFile.txt")]
         [InlineData("\\FilePathResultTestFile.txt")]

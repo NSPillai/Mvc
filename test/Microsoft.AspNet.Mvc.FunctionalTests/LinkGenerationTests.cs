@@ -48,7 +48,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
             // Location.ToString() in mono returns file://url. (https://github.com/aspnet/External/issues/21)
             Assert.Equal(
-                TestPlatformHelper.IsMono ? new Uri(expected) : new Uri(expected, UriKind.Relative),
+                !TestPlatformHelper.IsWindows ? new Uri(expected) : new Uri(expected, UriKind.Relative),
                 response.Headers.Location);
         }
 

@@ -35,8 +35,8 @@ namespace Microsoft.AspNet.Mvc.Razor
             {
                 var data = new TheoryData<string> { "//" };
 
-                // The following scenarios are not relevant in Mono.
-                if (!TestPlatformHelper.IsMono)
+                // The following scenarios are relevant only on Windows.
+                if (TestPlatformHelper.IsWindows)
                 {
                     data.Add("C:/");
                     data.Add(@"\\");
@@ -533,7 +533,7 @@ namespace Microsoft.AspNet.Mvc.Razor
 
                 protected override CSharpCodeWriter CreateCodeWriter()
                 {
-                    // We normalize newlines so no matter what platform we're on 
+                    // We normalize newlines so no matter what platform we're on
                     // they're consistent (for code generation tests).
                     var codeWriter = base.CreateCodeWriter();
                     codeWriter.NewLine = "\r\n";
