@@ -8,7 +8,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using InlineConstraints;
 using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Testing;
 using Microsoft.Framework.DependencyInjection;
 using Newtonsoft.Json;
 using Xunit;
@@ -49,7 +48,6 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
 
             // Assert
             var exception = response.GetServerException();
-            // Mono issue - https://github.com/aspnet/External/issues/19
             Assert.Equal(
                 "The view 'Index' was not found." +
                 " The following locations were searched:" + PlatformNormalizer.GetNewLinesAsUnderscores(1) +
@@ -505,7 +503,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
 
         public static IEnumerable<object[]> QueryParameters
         {
-            // The first four parameters are controller name, action name, parameters in the query and their values.   
+            // The first four parameters are controller name, action name, parameters in the query and their values.
             // These are used to generate a link, the last parameter is expected generated link
             get
             {

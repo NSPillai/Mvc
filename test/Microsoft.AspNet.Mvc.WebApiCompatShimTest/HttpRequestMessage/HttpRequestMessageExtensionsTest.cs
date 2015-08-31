@@ -28,8 +28,9 @@ namespace System.Net.Http
 
             Assert.Equal(
                 TestPlatformHelper.IsMono ?
-                "Invalid format." :
-                "The format of value 'foo/bar; param=value' is invalid.", ex.Message);
+                "One of the identified items was in an invalid format." :
+                "The format of value 'foo/bar; param=value' is invalid.",
+                ex.Message);
         }
 
         [Fact]

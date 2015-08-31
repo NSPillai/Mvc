@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Testing;
 using Xunit;
 
 namespace Microsoft.AspNet.Mvc.Core.Test
@@ -383,8 +382,7 @@ namespace Microsoft.AspNet.Mvc.Core.Test
 
             var actionParameters = new Dictionary<string, object> { { "i", "Some Invalid Value" }, { "s", inputParam2 } };
             var methodWithTaskOfIntReturnType = new MethodWithTaskOfIntReturnType(_controller.TaskValueTypeAction);
-            var message = TestPlatformHelper.IsMono ? "Object type {0} cannot be converted to target type: {1}" :
-                                                      "Object of type '{0}' cannot be converted to type '{1}'.";
+            var message = "Object of type '{0}' cannot be converted to type '{1}'.";
             var expectedException = string.Format(
                 CultureInfo.CurrentCulture,
                 message,
