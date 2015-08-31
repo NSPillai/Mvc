@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Http.Features;
 using Microsoft.Framework.Internal;
 using Microsoft.Net.Http.Headers;
 
@@ -74,6 +75,12 @@ namespace Microsoft.AspNet.Mvc
 
             using (FileStream)
             {
+                var bufferingFeature = response.HttpContext.GetFeature<IHttpBufferingFeature>();
+                if (bufferingFeature != null)
+                {
+                    bufferingFeature.DisableResponseBuffering();
+                }
+
                 await FileStream.CopyToAsync(outputStream, BufferSize, cancellation);
             }
         }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Http.Features;
 using Microsoft.Framework.Internal;
 using Microsoft.Net.Http.Headers;
 
@@ -38,6 +39,12 @@ namespace Microsoft.AspNet.Mvc
                 if (context.SelectedContentType != null)
                 {
                     response.ContentType = context.SelectedContentType.ToString();
+                }
+
+                var bufferingFeature = context.HttpContext.GetFeature<IHttpBufferingFeature>();
+                if (bufferingFeature != null)
+                {
+                    bufferingFeature.DisableResponseBuffering();
                 }
 
                 await valueAsStream.CopyToAsync(response.Body);
