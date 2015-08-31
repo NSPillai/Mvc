@@ -506,7 +506,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
 
         // Action has two Exception filters.
         // Verifies that the second Exception Filter was not executed.
-        [ConditionalTheory]
+        [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2757
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExceptionFilterShortCircuitsAnotherExceptionFilter()

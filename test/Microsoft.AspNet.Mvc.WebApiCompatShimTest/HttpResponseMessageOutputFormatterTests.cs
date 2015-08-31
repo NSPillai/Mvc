@@ -41,7 +41,7 @@ namespace Microsoft.AspNet.Mvc.WebApiCompatShimTest
             streamContent.Protected().Verify("Dispose", Times.Once(), true);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Issue - https://github.com/aspnet/External/issues/20
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExplicitlySet_ChunkedEncodingFlag_IsIgnored()
@@ -65,7 +65,7 @@ namespace Microsoft.AspNet.Mvc.WebApiCompatShimTest
             Assert.NotNull(httpContext.Response.ContentLength);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Issue - https://github.com/aspnet/External/issues/20
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExplicitlySet_ChunkedEncodingHeader_IsIgnored()
@@ -90,7 +90,7 @@ namespace Microsoft.AspNet.Mvc.WebApiCompatShimTest
             Assert.NotNull(httpContext.Response.ContentLength);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Issue - https://github.com/aspnet/External/issues/20
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExplicitlySet_MultipleEncodings_ChunkedNotIgnored()
@@ -112,12 +112,12 @@ namespace Microsoft.AspNet.Mvc.WebApiCompatShimTest
 
             // Assert
             Assert.True(httpContext.Response.Headers.ContainsKey(transferEncodingHeaderKey));
-            Assert.Equal(new string[] { "identity", "chunked" }, 
+            Assert.Equal(new string[] { "identity", "chunked" },
                         httpContext.Response.Headers.GetValues(transferEncodingHeaderKey));
             Assert.NotNull(httpContext.Response.ContentLength);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Issue - https://github.com/aspnet/External/issues/20
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExplicitlySet_MultipleEncodingsUsingChunkedFlag_ChunkedNotIgnored()

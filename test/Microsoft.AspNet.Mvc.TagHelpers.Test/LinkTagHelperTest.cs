@@ -16,10 +16,9 @@ using Microsoft.AspNet.Mvc.TagHelpers.Internal;
 using Microsoft.AspNet.Razor.Runtime.TagHelpers;
 using Microsoft.AspNet.Routing;
 using Microsoft.AspNet.Testing.xunit;
-using Microsoft.Framework.Caching;
+using Microsoft.Dnx.Runtime;
 using Microsoft.Framework.Caching.Memory;
 using Microsoft.Framework.Logging;
-using Microsoft.Dnx.Runtime;
 using Microsoft.Framework.WebEncoders.Testing;
 using Moq;
 using Xunit;
@@ -621,7 +620,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
                 output.PostElement.GetContent());
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/21
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public void RendersLinkTags_AddsFileVersion()
@@ -663,7 +662,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
             Assert.Equal("/css/site.css?v=f4OxZX_x_FO5LcGBSKHWXfwtSx-j1ncoSt3SABJtkGk", output.Attributes["href"].Value);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/21
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public void RendersLinkTags_AddsFileVersion_WithRequestPathBase()
@@ -705,7 +704,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
             Assert.Equal("/bar/css/site.css?v=f4OxZX_x_FO5LcGBSKHWXfwtSx-j1ncoSt3SABJtkGk", output.Attributes["href"].Value);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/21
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public void RendersLinkTags_GlobbedHref_AddsFileVersion()

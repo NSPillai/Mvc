@@ -12,14 +12,13 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http.Internal;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Testing.xunit;
 using Microsoft.AspNet.Razor.Runtime.TagHelpers;
 using Microsoft.AspNet.Routing;
-using Microsoft.Framework.Caching;
+using Microsoft.AspNet.Testing.xunit;
 using Microsoft.Framework.Caching.Memory;
+using Microsoft.Framework.WebEncoders.Testing;
 using Moq;
 using Xunit;
-using Microsoft.Framework.WebEncoders.Testing;
 
 namespace Microsoft.AspNet.Mvc.TagHelpers
 {
@@ -82,7 +81,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
             }
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/21
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public void RendersImageTag_AddsFileVersion()
@@ -156,7 +155,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
             Assert.Equal("/images/test-image.png", srcAttribute.Value);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/21
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public void RendersImageTag_AddsFileVersion_WithRequestPathBase()

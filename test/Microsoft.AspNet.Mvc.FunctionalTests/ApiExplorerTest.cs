@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.Formatters.Xml;
+using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Testing.xunit;
 using Microsoft.Framework.DependencyInjection;
 using Newtonsoft.Json;
@@ -569,7 +569,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             Assert.Equal(type, description.ResponseType);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/18
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ApiExplorer_ResponseContentType_Unset()

@@ -31,7 +31,7 @@ namespace Microsoft.AspNet.Mvc
             Assert.Equal(path, result.FileName);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExecuteResultAsync_FallsbackToStreamCopy_IfNoIHttpSendFilePresent()
@@ -88,7 +88,7 @@ namespace Microsoft.AspNet.Mvc
             Assert.Equal("FilePathResultTestFile contents", contents);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExecuteResultAsync_CallsSendFileAsync_IfIHttpSendFilePresent()
@@ -118,7 +118,7 @@ namespace Microsoft.AspNet.Mvc
             sendFileMock.Verify();
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExecuteResultAsync_SetsSuppliedContentTypeAndEncoding()
@@ -150,7 +150,7 @@ namespace Microsoft.AspNet.Mvc
             Assert.Equal(expectedContentType, httpContext.Response.ContentType);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExecuteResultAsync_WorksWithAbsolutePaths_UsingBackSlash()
@@ -183,7 +183,7 @@ namespace Microsoft.AspNet.Mvc
             Assert.Equal("FilePathResultTestFile contents", contents);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // https://github.com/aspnet/Mvc/issues/2727
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task ExecuteResultAsync_WorksWithAbsolutePaths_UsingForwardSlash()

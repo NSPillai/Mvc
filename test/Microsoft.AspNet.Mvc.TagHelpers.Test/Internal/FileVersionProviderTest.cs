@@ -42,7 +42,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
         }
 
         // Verifies if the stream is closed after reading.
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/21
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public void AddsVersionToFiles_DoesNotLockFileAfterReading()
@@ -100,7 +100,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
             Assert.Equal(filePath + "?v=f4OxZX_x_FO5LcGBSKHWXfwtSx-j1ncoSt3SABJtkGk", result);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/21
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public void DoesNotAddVersion_IfFileNotFound()
@@ -120,7 +120,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers.Internal
             Assert.Equal("http://contoso.com/hello/world", result);
         }
 
-        [ConditionalTheory]
+        [ConditionalFact]
         // Mono issue - https://github.com/aspnet/External/issues/21
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public void ReturnsValueFromCache()
