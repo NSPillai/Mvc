@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using BasicWebSite;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Testing;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.WebEncoders;
 using Xunit;
@@ -194,6 +195,7 @@ page:<root>root-content</root>"
         }
 
         [Fact]
+        [ReplaceCulture]
         public async Task ViewsWithModelMetadataAttributes_CanRenderPostedValue()
         {
             // Arrange

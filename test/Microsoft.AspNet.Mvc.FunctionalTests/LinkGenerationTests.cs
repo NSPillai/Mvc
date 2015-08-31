@@ -27,9 +27,12 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         private readonly Action<IServiceCollection> _configureServices = new BasicWebSite.Startup().ConfigureServices;
 
         [Theory]
-        [InlineData("http://pingüino/Home/RedirectToActionReturningTaskAction", "/Home/ActionReturningTask")]
-        [InlineData("http://pingüino/Home/RedirectToRouteActionAsMethodAction", "/Home/ActionReturningTask")]
-        [InlineData("http://pingüino/Home/RedirectToRouteUsingRouteName", "/api/orders/10")]
+        // Though host should not be important, pingüino did not work here with Core CLR on Linux. Seems to be a
+        // current HttpClient, System.Uri or text normalization issue. Hits a MissingMethodException in
+        // System.StringNormalizationExtensions.IsNormalized().
+        [InlineData("http://localhost/Home/RedirectToActionReturningTaskAction", "/Home/ActionReturningTask")]
+        [InlineData("http://localhost/Home/RedirectToRouteActionAsMethodAction", "/Home/ActionReturningTask")]
+        [InlineData("http://localhost/Home/RedirectToRouteUsingRouteName", "/api/orders/10")]
         public async Task GeneratedLinksWithActionResults_AreRelativeLinks_WhenSetOnLocationHeader(
             string url,
             string expected)
@@ -39,8 +42,6 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             var client = server.CreateClient();
 
             // Act
-
-            // The host is not important as everything runs in memory and tests are isolated from each other.
             var response = await client.GetAsync(url);
             var responseContent = await response.Content.ReadAsStringAsync();
 
